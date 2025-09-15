@@ -41,6 +41,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const questions = ref([
   {
@@ -81,6 +82,7 @@ const wrong = ref([
 const currentQuestionIndex = ref(0)
 const currentWrongIndex = ref(0)
 const showQuestion = ref(true) // ถ้า false จะซ่อนคำถามและโชว์ข้อความผิด
+const router = useRouter()
 
 // ตรวจคำตอบ
 const checkAnswer = (choice) => {
@@ -91,7 +93,7 @@ const checkAnswer = (choice) => {
     if (currentQuestionIndex.value < questions.value.length - 1) {
       currentQuestionIndex.value++
     } else {
-      alert('🎉 คุณตอบครบทุกข้อแล้ว!')
+      router.push({ name: 'game' })
     }
   } else {
     // ถ้าตอบผิด ซ่อนคำถาม
