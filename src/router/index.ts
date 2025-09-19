@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import IntroPage from '../pages/IntroPage.vue'
 import Game from '../pages/Game.vue'
 import App from '../App.vue'
-
+import Game2 from '../pages/Game2.vue'
 // import หน้าเพจ
 
 
@@ -22,6 +22,11 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'app',
     component: App,
+  },
+  {
+    path: '/game2',
+    name: 'game2',
+    component: Game2,
   },
 ]
 
