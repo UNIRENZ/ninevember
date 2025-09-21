@@ -55,7 +55,7 @@ const questions = ref([
     answer: '->',
   },
   {
-    question: 'ผมส่งไปให้อยู่ที่หน้าห้อง (หยิบมาแล้วค่อยกดไปต่อ)',
+    question: 'ผมส่งไปให้อยู่ที่หน้าห้องของคุณ (หยิบมาแล้วค่อยกดไปต่อ)',
     choices: ['->'],
     answer: '->',
   },
@@ -174,7 +174,7 @@ const checkAnswer = (choice) => {
     if (currentQuestionIndex.value < questions.value.length - 1) {
       currentQuestionIndex.value++
     } else {
-      router.push({ name: 'game3' })
+      window.location.href = 'https://loveunaja.vercel.app/gallery'
     }
   } else {
     if (currentQuestionIndex.value == 2){
