@@ -3,6 +3,7 @@ import IntroPage from '../pages/IntroPage.vue'
 import Game from '../pages/Game.vue'
 import App from '../App.vue'
 import Game2 from '../pages/Game2.vue'
+import Game3 from '../pages/Game3.vue'
 // import หน้าเพจ
 
 
@@ -27,6 +28,11 @@ const routes: RouteRecordRaw[] = [
     path: '/game2',
     name: 'game2',
     component: Game2,
+  },
+  {
+    path: '/game3',
+    name: 'game3',
+    component: Game3,
   },
 ]
 
