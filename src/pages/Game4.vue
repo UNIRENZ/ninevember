@@ -20,14 +20,15 @@
     
     <!-- แสดงคำถามถ้า showQuestion = true -->
     <div v-else :key="currentQuestionIndex">
-       <img
+      
+      <img
           v-if="questions[currentQuestionIndex].image"
           :src="questions[currentQuestionIndex].image"
           alt="question image"
          class="question-image"
 
         />
-        
+
       <h2 class="text-xl font-bold mb-4">
         {{ questions[currentQuestionIndex].question }}
       </h2>
@@ -53,83 +54,72 @@ import { useRouter } from 'vue-router'
 
 const questions = ref([
   {
-    question: 'เรามาคุยกันให้ลึกขึ้นหน่อยดีกว่า',
+    question: 'ผมส่งไปให้อยู่ที่หน้าห้องของคุณ (หยิบมาแล้วค่อยกดไปต่อ)',
     choices: ['->'],
     answer: '->',
-  },
-  {
-    question: 'คุณน่าจะรู้จักคนๆนี้',
-    image: '/public/images/1.jpg',
-    choices: ['->'],
-    answer: '->',
-  },
-  {
-    question: 'เขาคือใคร',
-    choices: ['แฟน', 'เพื่อน'],
-    answer: 'แฟน',
   },
    {
-    question: 'ผมขอเดาว่าเขาคือเนติลักษณ์',
+    question: 'ลองแกะดูสิ (แกะก่อนแล้วกดไปต่อ)',
     choices: ['->'],
     answer: '->',
   },
     {
-    question: 'คุณจำได้มั้ยของขวัญวันเกิดที่เขาให้คุณชิ้นแรกคืออะไร',
-    choices: ['น้ำหอม', 'กระเป๋า'],
-    answer: 'น้ำหอม' ,
+    question: 'อุ้ย...ต้องขอโทษด้วย',
+    choices: ['->'],
+    answer: '->' ,
   },
   {
-    question: 'ถูกต้อง',
+    question: 'เหมือนผมจะส่งให้ผิดชิ้น',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'น้ำหอม dior ทั้งเซ็ต',
-    image: '/public/images/2.jpg',
+    question: 'ผมส่งไปให้ใหม่แล้ว',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'แถมยังเป็นของปลอมด้วย',
+    question: 'ไปหยิบมาดูสิ (หยิบมาแล้วค่อยกดไปต่อ)',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'ทำให้ผมขำสุดๆเลย',
+    question: 'ลองแกะดูใหม่ (แกะก่อนแล้วกดไปต่อ)',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'แล้วปีต่อมาล่ะ เขาให้อะไรคุณเป็นชิ้นที่2',
-    choices: ['น้ำหอม', 'กระเป๋า'],
-    answer: 'กระเป๋า',
-  },
-  {
-    question: 'ถูกต้อง',
+    question: 'ดีใจมั้ย',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'กระเป๋าใบนี้',
-    image: '/public/images/3.jpg',
+    question: '...',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'ผมไม่ค่อยเห็นคุณใช้เท่าไหร่',
+    question: '...',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'มันอาจจะใส่ของได้น้อยผมเข้าใจ',
+    question: 'ผมยังมีอีกอย่างให้คุณ',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'ปีนี้ผมมีของขวัญมาให้คุณแทนเขา',
+    question: '...',
     choices: ['->'],
     answer: '->',
   },
+  {
+    question: 'ลองไปดูหน้าห้องสิ',
+    image: '',
+    choices: ['->'],
+    answer: '->',
+  },
+  
 ])
 
 const wrong = ref([
@@ -149,17 +139,17 @@ const wrong = ref([
     answer: '->',
   },
   {
-    question: 'ระวังเขาจะงอนเอานะ',
+    question: 'คุณชื่อนี้จริงๆหรอ',
     choices: ['->'],
     answer: '->',
   },
    {
-    question: 'คุณจำผิดรึป่าว',
+    question: 'ไม่คุ้นเลยหรอ',
     choices: ['->'],
     answer: '->',
   },
   {
-    question: 'คุณจำผิดรึป่าว',
+    question: 'มันก็แค่วันธรรมดาจริงหรอ',
     choices: ['->'],
     answer: '->',
   },
@@ -190,16 +180,16 @@ const checkAnswer = (choice) => {
     if (currentQuestionIndex.value < questions.value.length - 1) {
       currentQuestionIndex.value++
     } else {
-      router.push({ name: 'game4' })
+      window.location.href = 'https://loveunaja.vercel.app/gallery'
     }
   } else {
     if (currentQuestionIndex.value == 2){
       currentWrongIndex.value = 3
     }
-    else if(currentQuestionIndex.value == 4){
-      currentWrongIndex.value = 5
+    else if(currentQuestionIndex.value == 5){
+      currentWrongIndex.value = 4
     }
-    else if(currentQuestionIndex.value == 9){
+    else if(currentQuestionIndex.value == 6){
       currentWrongIndex.value = 5
     }
     showQuestion.value = false
@@ -213,8 +203,8 @@ const checkWrong = (choice) => {
     if(currentWrongIndex.value == 3){
       currentWrongIndex.value = currentWrongIndex.value + 4
     }
-    else if(currentWrongIndex.value == 5){
-      currentWrongIndex.value = currentWrongIndex.value + 2
+    else if(currentWrongIndex.value == 4){
+      currentWrongIndex.value = currentWrongIndex.value + 3
     }
     else if(currentWrongIndex.value == 5){
       currentWrongIndex.value = currentWrongIndex.value + 2
